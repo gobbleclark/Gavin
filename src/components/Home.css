@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:700);
+@import url(https://fonts.googleapis.com/css?family=Sanchez);
+.image {
+  width: 50%;
+  position: relative;
+  transition: all ease-in-out .5s;
+  img {
+    width: 100%;
+    min-height: 100%;
+    display: block;
+  }
+  .title {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+    transition: all ease-in-out .5s;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .description {
+    position: absolute;
+    display: none;
+    left: 30px;
+    right: 30px;
+    color: #fff;
+    font-family: 'Sanchez', serif;
+    font-size:.8em;
+  }
+  &:hover {
+    background: #333;
+    img {
+      opacity: .3;
+    }
+    .title {
+      bottom: 30%;
+    }
+    .description {
+      display: block;
+      animation-name: slide-up;
+      animation-duration: .5s;
+      animation-timing-function: ease-in-out;
+      animation-delay: .2s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    bottom: 0;
+    opacity: 0;
+  }
+  100% {
+    bottom: 15%;
+    opacity: 1;
+  }
+}
