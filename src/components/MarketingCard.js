@@ -16,7 +16,11 @@ const MarketingCard = () => {
     </List.Item>
     <hr />
     <List.Item>
-      <Image size ='small' avatar src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJav8wUO7F2LHCroZtxfIHWXyeLKRMiz05meoFr1V5bteiwoJ-' />
+      <Image 
+        size ='small' 
+        avatar src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJav8wUO7F2LHCroZtxfIHWXyeLKRMiz05meoFr1V5bteiwoJ-'
+        style={{paddingLeft: '10px'}}
+         />
       <List.Content>
         <List.Header style={{color: '#393e46'}} as='h2'>DATA ANALYSIS</List.Header>
         <List.Description>
@@ -48,6 +52,7 @@ const MarketingCard = () => {
     </List.Item>
     <hr />
 </List>
+
   
     )
 }

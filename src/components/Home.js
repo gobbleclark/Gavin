@@ -6,6 +6,7 @@ import {useSpring, animated, interpolate} from 'react-spring/renderprops'
 import styled, {keyframes, } from 'styled-components';
 import SoftwareCard from './SoftwareCard'
 import MarketingCard from './MarketingCard'
+import LeftImage from './LeftImage'
 
 
 
@@ -18,43 +19,51 @@ const Home = (props) => {
    function toggleSoftware() {
     state ? setState(false) : setState(true);
   }
+   function toggleSoftwareTwo() {
+    state ? setState(true) : setState(false);
+  }
    function toggleMarketing() {
     marketing ? setMarketing(false) : setMarketing(true);
   }
+
+  function ShowLeftImage() { 
+    return ( {left} )
+  }
   
     return (
+      <>
       <div style={{backgroundColor: '#393e46'}}>
         <Container>
         <Grid  equalwidths  columns={2}>
-            <Grid.Column  onClick={toggleSoftware}  stretched>
+            <Grid.Column  stretched>
             {state ? 
-              <Fade>
                   <Image
+                  onMouseEnter={toggleSoftware}
                   centered
                   style = {{
                       marginRight: '-15px',
                   }}
                   size = 'large'
                   src = {left} />
-              </Fade>
-            : <SoftwareCard/>}
+            :<SoftwareCard
+            />}
             </Grid.Column>
-            <Grid.Column onClick={toggleMarketing} stretched >
+            <Grid.Column stretched >
             {marketing ? 
-              <Fade> 
                   <Image
-                  
+                  onMouseOver={toggleMarketing}
+                  onMouseOut={!toggleMarketing}
                   style = {{
                       marginLeft: '-15px',
                   }}
                   size = 'large'
                   src = {right} />
-              </Fade>
               :  <MarketingCard /> }
             </Grid.Column>
         </Grid>
         </Container>
         </div>
+        </>
     )
 }
 

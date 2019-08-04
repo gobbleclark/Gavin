@@ -38,16 +38,6 @@ const SoftwareCard = () => {
       </List.Content>
     </List.Item>
     <hr />
-    <List.Item>
-      <Image size='small' avatar src='http://postgresapp.com/img/PostgresAppIconLarge.png' />
-      <List.Content>
-        <List.Header style={{color: '#393e46'}} as='h2'>PostgreSQL</List.Header>
-        <List.Description>
-          I have expericne in adding custom SQL into my Rails / React projects using PostgresQL. I enjoy this as it helps me bring any data I need into certain components.
-        </List.Description>
-      </List.Content>
-    </List.Item>
-    <hr />
 </List>
   
     </>
