@@ -1,43 +1,60 @@
-import React from 'react';
+import React, {useState, } from 'react';
 import {Grid, Image, Container,Header,} from 'semantic-ui-react';
 import left from './left.jpg'
 import right from './right.jpg'
 import {useSpring, animated, interpolate} from 'react-spring/renderprops'
 import styled, {keyframes, } from 'styled-components';
+import SoftwareCard from './SoftwareCard'
+import MarketingCard from './MarketingCard'
 
 
 
-const Home = () => {
+
+const Home = (props) => {
    
+   const [state, setState] = useState(true);
+   const [marketing, setMarketing] = useState(true);
     
-   
+   function toggleSoftware() {
+    state ? setState(false) : setState(true);
+  }
+   function toggleMarketing() {
+    marketing ? setMarketing(false) : setMarketing(true);
+  }
+  
     return (
+      <div style={{backgroundColor: '#393e46'}}>
         <Container>
-        <Grid equalwidths  columns={2}>
-       
-            <Grid.Column stretched>
-            <Fade>
-                <Image 
-                centered
-                style = {{
-                    marginRight: '-15px',
-                }}
-                size = 'large'
-                src = {left} />
-            </Fade>
+        <Grid  equalwidths  columns={2}>
+            <Grid.Column  onClick={toggleSoftware}  stretched>
+            {state ? 
+              <Fade>
+                  <Image
+                  centered
+                  style = {{
+                      marginRight: '-15px',
+                  }}
+                  size = 'large'
+                  src = {left} />
+              </Fade>
+            : <SoftwareCard/>}
             </Grid.Column>
-            <Grid.Column stretched >
-            <Fade> 
-                <Image
-                style = {{
-                    marginLeft: '-15px',
-                }}
-                size = 'large'
-                src = {right} />
-            </Fade>
+            <Grid.Column onClick={toggleMarketing} stretched >
+            {marketing ? 
+              <Fade> 
+                  <Image
+                  
+                  style = {{
+                      marginLeft: '-15px',
+                  }}
+                  size = 'large'
+                  src = {right} />
+              </Fade>
+              :  <MarketingCard /> }
             </Grid.Column>
         </Grid>
         </Container>
+        </div>
     )
 }
 
